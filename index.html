@@ -261,13 +261,14 @@
     .dossier{box-shadow:none;border:1px solid #111;margin:0;padding:16px;}
   }
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>\n</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
 <body>
 
 <div class="masthead">
   <div class="masthead-inner">
     <div class="eyebrow"><span>ДОСЬЕ // NIGHT CITY, CA-FREE STATE</span><span id="clock">2020</span></div>
-    <h1 class="title">Night City <span class="red">Dossier</span></h1>
+    <h1 class="title">Night City <span class="red">Marshmello</span></h1>
     <p class="subtitle">Персональная карточка эджранера. Заполни характеристики, свяжись с фиксером, не умри в первый же вечер.</p>
     <div class="stamp">Property of Militech Records</div>
   </div>
@@ -503,7 +504,7 @@
 
 </main>
 
-<footer>NIGHT CITY DOSSIER · Неофициальный фан-инструмент · Cyberpunk 2020 — R. Talsorian Games</footer>
+<footer>NIGHT CITY MARSHMELLO · Неофициальный фан-инструмент · Cyberpunk 2020 — R. Talsorian Games</footer>
 
 <script>
   // ---------- TABS ----------
@@ -533,8 +534,6 @@
   const POOL = 62;
   const MIN = 2, MAX = 10;
 
-  // Сбалансированные стартовые профили ролей. Каждый профиль = ровно 62 очка.
-  // Это не "оптимальные" билды, а средние отправные значения с небольшим акцентом роли.
   const ROLE_PRESETS = {
     Solo:       {INT:6, REF:8, TECH:6, COOL:7, ATTR:7, LUCK:6, MA:7, BODY:8, EMP:7},
     Netrunner:  {INT:8, REF:7, TECH:8, COOL:7, ATTR:6, LUCK:6, MA:6, BODY:7, EMP:7},
@@ -629,7 +628,6 @@
 
   // ---------- IMPLANT CATALOG ----------
   const IMPLANTS = [
-    // Neuralware
     ['Базовый нейропроцессор','Neuralware','1000','1d6','Основа для ряда нейроимплантов'],
     ['Chipware Socket','Neuralware','200','1d6/2','Слот для чипов'],
     ['Интерфейсные разъёмы (пара)','Neuralware','200','1d6','Прямое подключение к интерфейсам'],
@@ -646,8 +644,6 @@
     ['Machine/Tech Link','Neuralware','100','2','Интерфейс техники'],
     ['WetDrive Access Link','Neuralware','200','1d6/2','Доступ к WetDrive'],
     ['LockDown','Neuralware','300','1d6','Помогает находить источники огня/снайперов'],
-
-    // Bodyware
     ['Назальные фильтры','Bodyware','60','2','Фильтрация воздуха'],
     ['Жабры','Bodyware','400','3d6','Позволяют дышать под водой'],
     ['Независимая подача кислорода','Bodyware','300','2d6','Запас кислорода'],
@@ -663,8 +659,6 @@
     ['Химический анализатор','Bodyware','200','2','Анализ химических веществ'],
     ['Синтезатор голоса','Bodyware','600','1d6','Изменение/имитация голоса'],
     ['AudioVox','Bodyware','700','2d6','Расширенная голосовая модификация'],
-
-    // Cyberoptics
     ['Кибероптический модуль','Cyberoptics','1000','2d6','Базовая кибернетическая оптика'],
     ['Ночное видение','Cyberoptics','200','2','Видение в темноте'],
     ['Инфракрасное видение','Cyberoptics','200','2','Тепловой диапазон'],
@@ -672,20 +666,14 @@
     ['Low-Light','Cyberoptics','100','2','Улучшение зрения при слабом свете'],
     ['Anti-Dazzle','Cyberoptics','100','2','Защита от ослепления'],
     ['Cyberoptics Eyepatch','Cyberoptics','330','2d6/3','Компактный оптический модуль'],
-
-    // Cyberaudio
     ['Кибераудио','Cyberaudio','500','1d6','Базовый аудиомодуль'],
     ['Усилитель слуха','Cyberaudio','100','2','Повышение чувствительности слуха'],
     ['Фильтр звука','Cyberaudio','100','1','Фильтрация нежелательных шумов'],
     ['Радиоприёмник','Cyberaudio','100','1','Встроенная радиосвязь'],
-
-    // Cyberlimbs
     ['Киберрука','Cyberlimbs','1000','2d6','Замена руки; допускает модификации'],
     ['Кибернога','Cyberlimbs','1200','2d6','Замена ноги; допускает модификации'],
     ['Киберглаз(а)','Cyberlimbs','1000','2d6','Замена глаза/оптический интерфейс'],
     ['Киберухо','Cyberlimbs','1000','2d6','Замена уха/аудиоинтерфейс'],
-
-    // Body weapons
     ['Rippers','Body Weapons','400','3d6','Выдвижные лезвия'],
     ['Wolvers','Body Weapons','600','3d6+1','Усиленные выдвижные когти'],
     ['Scratchers','Body Weapons','100','2d6','Базовые когти'],
@@ -694,21 +682,15 @@
     ['Implanted Fangs','Body Weapons','200','3d6','Имплантированные клыки'],
     ['Power Jaw','Body Weapons','100','1d6/3','Усиленная челюсть'],
     ['Stinger','Body Weapons','400','1d6+3','Имплантированное жало'],
-
-    // Linear frames
     ['Sigma Linear Frame','Linear Frames','6000','2d6','Силовой каркас, STR 12'],
     ['Beta Linear Frame','Linear Frames','8000','2d6','Силовой каркас, STR 14'],
     ['Omega Linear Frame','Linear Frames','10000','3d6','Силовой каркас, STR 16'],
-
-    // Fashionware
     ['Biomonitor','Fashionware','100','1','Мониторинг состояния организма'],
     ['Skinwatch','Fashionware','50','1','Подкожные часы'],
     ['Light Tattoo','Fashionware','1–20','0.5','Светящаяся декоративная татуировка'],
     ['Shift-Tacts','Fashionware','1–200','0.5','Контактные линзы со сменой цвета'],
     ['ChemSkins','Fashionware','200','1d6/2','Изменение цвета/рисунка кожи'],
     ['Synthskins','Fashionware','400','1d6','Искусственная кожа'],
-
-    // Common implants from CP2020 reference lists
     ['Gyro-Stabilizer','Bodyware','1000','1d6','Помогает удерживать равновесие'],
     ['Rebreather / Enhanced Lungs','Bodyware','700','1d6+1','Улучшенное дыхание и задержка дыхания'],
     ['Extra Memory','Neuralware','175','0','Дополнительная память'],
@@ -739,21 +721,6 @@
     document.title = 'Cyberpunk 2020 — ' + name;
   }
   document.getElementById('cname').addEventListener('input', syncCharacterTitle);
-
-  document.getElementById('downloadPdf').addEventListener('click', async () => {
-    const card = document.querySelector('#panel-card .dossier');
-    const name = document.getElementById('cname').value.trim() || 'character';
-    card.classList.add('print-sheet');
-    const opt = {
-      margin: 8,
-      filename: `Cyberpunk_2020_${name.replace(/[^a-zа-яё0-9_-]+/gi,'_')}.pdf`,
-      image: {type:'jpeg', quality:0.95},
-      html2canvas: {scale:2, backgroundColor:'#ffffff', useCORS:true},
-      jsPDF: {unit:'mm', format:'a4', orientation:'portrait'}
-    };
-    try { await html2pdf().set(opt).from(card).save(); }
-    finally { card.classList.remove('print-sheet'); }
-  });
 </script>
 
 </body>
