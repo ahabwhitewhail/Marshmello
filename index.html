@@ -93,7 +93,7 @@
     font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
     background:var(--ink); color:var(--paper);
     border:none; padding:12px 16px; cursor:pointer;
-    flex:1 1 auto; min-width:140px;
+    flex:1 1 auto; min-width:130px;
     transition:background 0.15s ease, color 0.15s ease;
   }
   .tab-btn:hover{background:#332c22;}
@@ -109,7 +109,7 @@
     font-family:'JetBrains Mono', monospace;
     font-size:11px; letter-spacing:0.2em; text-transform:uppercase;
     color:var(--blood); font-weight:700;
-    margin:0 0 6px;
+    margin:14px 0 6px;
   }
   h2{
     font-family:'Anton', sans-serif;
@@ -199,16 +199,17 @@
   .derived .d-box .lbl{font-size:10px; letter-spacing:0.12em; text-transform:uppercase; opacity:0.85;}
 
   /* ===== RULES / TEXT ===== */
-  .rule-block{margin-bottom:20px;}
+  .rule-block{margin-bottom:22px;}
   .rule-block h3{
     font-family:'Oswald', sans-serif; font-weight:600; text-transform:uppercase;
-    font-size:16px; letter-spacing:0.04em; margin:0 0 6px; color:var(--blood);
+    font-size:18px; letter-spacing:0.04em; margin:0 0 6px; color:var(--blood);
   }
-  .rule-block p{margin:0 0 6px; font-size:14.5px;}
+  .rule-block p, .rule-block ul, .rule-block ol{margin:0 0 8px; font-size:14.5px;}
+  .rule-block ul, .rule-block ol{padding-left:20px;}
   .note{
     font-family:'JetBrains Mono', monospace; font-size:11.5px;
     border-left:3px solid var(--warn); padding:8px 12px; background:rgba(232,185,35,0.12);
-    margin-top:6px;
+    margin-top:6px; margin-bottom:14px;
   }
 
   /* ===== TABLE ===== */
@@ -234,14 +235,13 @@
     font-family:'Anton', sans-serif; font-size:22px; color:var(--blood);
   }
   .lore-entry p{margin:0; font-size:14.5px;}
-  .lore-entry h4{margin:0 0 4px; font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:14.5px; letter-spacing:0.03em;}
+  .lore-entry h4{margin:0 0 4px; font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:15px; letter-spacing:0.03em;}
 
   footer{
     max-width:960px; margin:34px auto 0; padding:16px 20px 0;
     border-top:2px solid var(--ink);
     font-family:'JetBrains Mono', monospace; font-size:11px; opacity:0.6; letter-spacing:0.05em;
   }
-
 
   /* ===== CHARACTER SHEET / PDF ===== */
   .character-sheet-head{border-top:4px solid var(--ink);padding-top:14px;margin-bottom:18px;}
@@ -250,7 +250,6 @@
   .sheet-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
   .sheet-actions button{border:2px solid var(--ink);background:var(--ink);color:var(--paper);padding:11px 16px;font-family:'JetBrains Mono',monospace;font-weight:700;cursor:pointer;text-transform:uppercase;}
   .sheet-actions button:hover{background:var(--blood);}
-  .print-sheet{background:#fff!important;color:#000!important;box-shadow:none!important;border:1px solid #222!important;}
   @media(max-width:700px){.sheet-grid{grid-template-columns:repeat(2,1fr);}}
   @media print{
     body{background:#fff!important;padding:0!important;}
@@ -269,17 +268,18 @@
   <div class="masthead-inner">
     <div class="eyebrow"><span>ДОСЬЕ // NIGHT CITY, CA-FREE STATE</span><span id="clock">2020</span></div>
     <h1 class="title">Night City <span class="red">Marshmello</span></h1>
-    <p class="subtitle">Персональная карточка эджранера. Заполни характеристики, свяжись с фиксером, не умри в первый же вечер.</p>
+    <p class="subtitle">Полный справочник эджранера и интерактивная карточка персонажа. Заполни характеристики, изучи правила, не умри в первый же вечер.</p>
     <div class="stamp">Property of Militech Records</div>
   </div>
 </div>
 
 <nav class="tabs">
   <button class="tab-btn active" data-tab="card">Карточка персонажа</button>
+  <button class="tab-btn" data-tab="roles">Роли (Классы)</button>
+  <button class="tab-btn" data-tab="rules">Механики &amp; Бой</button>
   <button class="tab-btn" data-tab="implants">Импланты</button>
-  <button class="tab-btn" data-tab="rules">Базовые правила</button>
   <button class="tab-btn" data-tab="ammo">Амуниция</button>
-  <button class="tab-btn" data-tab="lore">История мира</button>
+  <button class="tab-btn" data-tab="lore">История &amp; Мир</button>
 </nav>
 
 <main>
@@ -349,90 +349,92 @@
 
     <div class="note">
       Диапазон каждой характеристики 2–10, суммарный бюджет — 62 очка (упрощённый метод «Fast &amp; Dirty» из
-      Cyberpunk 2020). Если играете по методу с бросками 9d10 — используйте калькулятор просто как справочник
-      производных показателей, введя уже выпавшие значения.
+      Cyberpunk 2020). Выбор роли выше автоматически выставляет базовый пресет характеристик.
     </div>
   </section>
 
-  <!-- ===================== RULES ===================== -->
-  <section class="panel" id="panel-rules">
-    <h2>Базовые правила</h2>
-
-    <div class="rule-block">
-      <h3>Ядро системы</h3>
-      <p>Почти любое действие: 1к10 + характеристика + уровень навыка, против Value Difficulty (обычно 10–30).
-      Результат равен или выше — успех. Классический «крит» — выпавшая на кубике десятка позволяет бросить ещё раз
-      и прибавить к результату; единица может означать провал по усмотрению ведущего.</p>
-    </div>
-
-    <div class="rule-block">
-      <h3>Инициатива и раунд</h3>
-      <p>Инициатива = 1к10 + REF, действия разыгрываются по убыванию результата. Боевой раунд условно
-      равен 3 секундам — этого достаточно на одно полноценное действие (выстрел, удар, рывок в укрытие).</p>
-    </div>
-
-    <div class="rule-block">
-      <h3>Броня и урон</h3>
-      <p>Броня даёт Stopping Power (SP) — значение вычитается из урона перед тем, как он применяется к персонажу.
-      Оставшийся урон переводится в Wound Level: Light → Serious → Critical → Mortal 0–4 → Dead. При переходе на
-      Serious и тяжелее нужен спас-бросок по Stun/Death Save (1к10 + BODY против растущей сложности).</p>
-    </div>
-
-    <div class="rule-block">
-      <h3>Human­ity и киберпсихоз</h3>
-      <p>Каждый установленный киберимплант забирает Humanity Cost. Когда текущая Humanity падает ниже определённых
-      порогов, персонаж рискует потерять эмпатию к людям и скатиться в киберпсихоз — то, ради чего в городе
-      держат спецотряды вроде MAX-TAC.</p>
-      <div class="note">Конкретные пороги и стоимость имплантов сильно зависят от издания и опционалок — сверяйтесь
-      с таблицами в основной книге правил или у своего ведущего.</div>
-    </div>
-  </section>
-
-  <!-- ===================== AMMO ===================== -->
-  <section class="panel" id="panel-ammo">
-    <h2>Амуниция и оружие</h2>
+  <!-- ===================== ROLES ===================== -->
+  <section class="panel" id="panel-roles">
+    <h2>Роли и Специальные Способности</h2>
+    <p>Роль в Cyberpunk 2020 определяет социальный статус, стиль жизни и уникальную <b>Специальную Способность (Special Ability)</b>, которая даёт эксклюзивные игровые бонусы:</p>
+    
     <table>
       <thead>
-        <tr><th>Класс оружия</th><th>Примеры</th><th>Урон (ориентировочно)</th><th>Заметки</th></tr>
+        <tr><th>Роль</th><th>Спецспособность</th><th>Описание и роль в команде</th></tr>
       </thead>
       <tbody>
-        <tr><td>Лёгкий пистолет</td><td>.22, .32</td><td>1к6</td><td>Слабое стартовое оружие, дёшево достать</td></tr>
-        <tr><td>Средний пистолет</td><td>9мм, .38, .40</td><td>2к6</td><td>Стандарт для копов и большинства NPC</td></tr>
-        <tr><td>Тяжёлый пистолет</td><td>.44 Magnum, 10мм</td><td>3к6</td><td>Сильная отдача, требует TECH/REF повыше</td></tr>
-        <tr><td>Очень тяжёлый пистолет</td><td>.50 Desert Eagle</td><td>4к6</td><td>Соло-оружие «понты дороже практичности»</td></tr>
-        <tr><td>Пистолет-пулемёт</td><td>9мм/10мм авто</td><td>2к6</td><td>Автоматический огонь, расход патронов быстрый</td></tr>
-        <tr><td>Дробовик</td><td>12 калибр, картечь/слаг</td><td>5к6</td><td>Убийственно на близкой дистанции, урон падает с расстоянием</td></tr>
-        <tr><td>Штурмовая винтовка</td><td>5.56, 7.62</td><td>5к6</td><td>Основное оружие Militech/Arasaka пехоты</td></tr>
-        <tr><td>Снайперская винтовка</td><td>.308 и крупнее</td><td>5к6+</td><td>Бонусы к попаданию на дистанции, штраф на близкой</td></tr>
-      </tbody>
-    </table>
-    <div class="note">
-      Точные значения урона, стоимости и доступности оружия зависят от издания книги правил (Core Rulebook,
-      Chromebook и т.д.) — таблица выше приведена как ориентир для быстрой игры, а не как точная копия
-      официальных таблиц. Перед серьёзной кампанией сверьтесь с оригинальными Friday Night Firefight правилами.
-    </div>
-
-    <h2 style="margin-top:28px;">Типы патронов</h2>
-    <table>
-      <thead><tr><th>Тип</th><th>Эффект</th></tr></thead>
-      <tbody>
-        <tr><td>Стандартные (Standard)</td><td>Базовый урон без модификаторов</td></tr>
-        <tr><td>Бронебойные (AP)</td><td>Снижают эффективность SP цели, но чуть слабее по базовому урону</td></tr>
-        <tr><td>Экспансивные (Hollow Point)</td><td>Больше урона по незащищённой цели, хуже против брони</td></tr>
-        <tr><td>Резиновые (Rubber/Rezin)</td><td>Нелетальный урон, используется полицией для задержания</td></tr>
-        <tr><td>Экседж (Excessive/Explosive)</td><td>Дополнительный урон, но повышенный риск порчи оружия</td></tr>
+        <tr><td><b>Solo (Соло)</b></td><td>Combat Sense (Боевое чутьё)</td><td>Наёмники и кибер-солдаты. Способность даёт прямые бонусы к Инициативе, Внимательности, броскам Атаки и Защиты. Главная боевая сила.</td></tr>
+        <tr><td><b>Rockerboy (Рокербой)</b></td><td>Charismatic Leadership</td><td>Уличные идолы и бунтари. Способны вести за собой толпу, устраивать протесты и заставлять фанатов выполнять их просьбы.</td></tr>
+        <tr><td><b>Netrunner (Нетраннер)</b></td><td>Interface (Интерфейс)</td><td>Хакеры, подключающиеся к Сети через нейроинтерфейсы. Взламывают виртуальные системы безопасности, ищут данные и сражаются в виртуале.</td></tr>
+        <tr><td><b>Techie (Техник)</b></td><td>Jury Rig (Аварийный ремонт)</td><td>Инженеры и изобретатели. Могут быстро чинить, модифицировать и улучшать оружие, технику и киберимпланты.</td></tr>
+        <tr><td><b>Medtech (Медтех)</b></td><td>Medical Tech (Хирургия)</td><td>Полевые врачи. Единственные, кто может проводить сложные операции, спасать от смерти при тяжелых ранениях и устанавливать импланты.</td></tr>
+        <tr><td><b>Fixer (Фиксер)</b></td><td>Streetdeal (Уличные сделки)</td><td>Посредники и контрабандисты. Находят редкое оружие, заказы, покупают и продают информацию, имеют связи на чёрном рынке.</td></tr>
+        <tr><td><b>Cop (Коп)</b></td><td>Authority (Авторитет)</td><td>Представители закона или корпоративной полиции. Могут допрашивать, задерживать, перекрывать улицы и вызывать подкрепление.</td></tr>
+        <tr><td><b>Corporate (Корпорат)</b></td><td>Resources (Ресурсы)</td><td>Менеджеры корпораций. Имеют доступ к финансированию, личной охране, корпоративному транспорту и ресурсам мегакорпораций.</td></tr>
+        <tr><td><b>Nomad (Кочевник)</b></td><td>Family (Семья)</td><td>Выходцы из дорожных кланов. Могут призывать на помощь членов своей семьи, получать транспорт и поддержку в пустошах.</td></tr>
+        <tr><td><b>Media (Медиа)</b></td><td>Credibility (Достоверность)</td><td>Журналисты и репортёры. Влияют на общественное мнение, разоблачают корпорации и имеют доступ к закрытым источникам.</td></tr>
       </tbody>
     </table>
   </section>
 
+  <!-- ===================== RULES & COMBAT ===================== -->
+  <section class="panel" id="panel-rules">
+    <h2>Механики Правил и Боя</h2>
+
+    <div class="rule-block">
+      <h3>1. Проверка Успеха (Базовый Бросок)</h3>
+      <p>Для совершения любого действия бросается:</p>
+      <div class="note"><b>1d10 + Характеристика + Навык ≥ Сложность (DV)</b></div>
+      <ul>
+        <li><b>Критический успех (10 на d10):</b> Бросьте d10 ещё раз и прибавьте результат к сумме.</li>
+        <li><b>Критический провал (1 на d10):</b> Бросьте d10 ещё раз и вычтите результат из суммы.</li>
+      </ul>
+    </div>
+
+    <div class="rule-block">
+      <h3>2. Пошаговая структура боя (Friday Night Firefight)</h3>
+      <ol>
+        <li><b>Инициатива:</b> <code>1d10 + REF (Рефлексы) + Combat Sense (для Solo)</code>. Ходы совершаются от большего к меньшему.</li>
+        <li><b>Действие:</b> Выстрел, атака в ближнем бою, перемещение, использование предмета.</li>
+        <li><b>Бросок атаки:</b> <code>1d10 + REF + Навык оружия + Модификаторы ≥ DV</code> (сложность зависит от дистанции до цели).</li>
+        <li><b>Локация попадания (бросок 1d10):</b>
+          <ul>
+            <li><b>1:</b> Голова | <b>2–4:</b> Торс | <b>5–6:</b> Правая рука | <b>7–8:</b> Левая рука | <b>9:</b> Правая нога | <b>10:</b> Левая нога</li>
+          </ul>
+        </li>
+        <li><b>Расчёт урона и Броня (SP):</b> Из урона оружия вычитается показатель защиты брони (SP) в этой локации. Каждое пробитие уменьшает SP брони на 1.</li>
+        <li><b>Спас-броски (Stun / Death Save):</b> При сильных ранениях совершается бросок <code>1d10 ≤ BODY - Модификатор травмы</code>. Провал означает бессознательное состояние или смерть.</li>
+      </ol>
+    </div>
+
+    <div class="rule-block">
+      <h3>3. Киберимпланты и Киберпсихоз</h3>
+      <p>Установка кибернетики отнимает человеческую природу персонажа:</p>
+      <ul>
+        <li><b>Стартовая Человечность (Humanity):</b> <code>EMP (Эмпатия) × 10</code>.</li>
+        <li><b>Потеря Человечности (Humanity Loss):</b> Каждый имплант имеет стоимость (HC).</li>
+        <li><b>Снижение Эмпатии:</b> За каждые 10 потерянных очков Humanity показатель EMP падает на 1.</li>
+        <li><b>Киберпсихоз:</b> Если EMP опускается до 0, персонаж теряет разум, становится агрессивным киберпсихопатом и переходит под контроль GM.</li>
+      </ul>
+    </div>
+
+    <div class="rule-block">
+      <h3>4. Пошаговое создание персонажа</h3>
+      <ol>
+        <li><b>Выбор Роли:</b> Определите профессию и спецспособность.</li>
+        <li><b>Распределение очков (Stats):</b> Распределите 55–62 очка между 9 характеристиками (INT, REF, TECH, COOL, ATTR, LUCK, MA, BODY, EMP).</li>
+        <li><b>Навыки (Skills):</b> Выберите ролевые и дополнительные навыки (обычно от 0 до 6).</li>
+        <li><b>Жизненный путь (Lifepath):</b> Заполните происхождение, мотивацию, врагов/друзей и события прошлых лет.</li>
+        <li><b>Закупка экипировки:</b> Выберите оружие, броню, снаряжение и стартовые импланты.</li>
+      </ol>
+    </div>
+  </section>
 
   <!-- ===================== IMPLANTS ===================== -->
   <section class="panel" id="panel-implants">
     <h2>Каталог имплантов</h2>
     <div class="note">
-      Каталог собран по Cyberpunk 2020 и ориентирован на базовые/наиболее используемые позиции.
-      Цены указаны в евробаках (eb), Humanity Cost — как справочное значение; для конкретной кампании
-      приоритет имеют используемое вами издание и решения Referee.
+      Цены указаны в евробаках (eb), Humanity Cost (HC) — потеря человечности при установке.
     </div>
 
     <div class="id-row" style="margin-top:18px;">
@@ -464,47 +466,76 @@
       </thead>
       <tbody></tbody>
     </table>
-    <div class="note">
-      HC = Humanity Cost. Значения приведены как справочник, без дословного воспроизведения текста книги.
-    </div>
+  </section>
+
+  <!-- ===================== AMMO ===================== -->
+  <section class="panel" id="panel-ammo">
+    <h2>Амуниция и оружие</h2>
+    <table>
+      <thead>
+        <tr><th>Класс оружия</th><th>Примеры</th><th>Урон</th><th>Заметки</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Лёгкий пистолет</td><td>.22, .32, Dai Lung Streetmaster</td><td>1к6 / 2d6</td><td>Слабое стартовое оружие, дёшево достать</td></tr>
+        <tr><td>Средний пистолет</td><td>9мм, .38, .40</td><td>2к6</td><td>Стандарт для копов и большинства NPC</td></tr>
+        <tr><td>Тяжёлый пистолет</td><td>Sternmeyer P-35, .44 Magnum</td><td>3к6</td><td>Сильная отдача, стандарт соло-стрелков</td></tr>
+        <tr><td>Очень тяжёлый пистолет</td><td>.50 Desert Eagle</td><td>4к6</td><td>Огромный урон, «понты дороже практичности»</td></tr>
+        <tr><td>Пистолет-пулемёт</td><td>9мм/10мм авто</td><td>2к6+1</td><td>Автоматический огонь, высокий расход патронов</td></tr>
+        <tr><td>Дробовик</td><td>12 калибр, картечь/слаг</td><td>5к6</td><td>Убийственно на близкой дистанции</td></tr>
+        <tr><td>Штурмовая винтовка</td><td>Militech Ronin, 5.56</td><td>5к6</td><td>Основное оружие корпоративной пехоты</td></tr>
+        <tr><td>Снайперская винтовка</td><td>.308 и крупнее</td><td>5к6+</td><td>Бонусы на дистанции, штраф на близкой</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:28px;">Типы патронов</h2>
+    <table>
+      <thead><tr><th>Тип</th><th>Эффект</th></tr></thead>
+      <tbody>
+        <tr><td>Стандартные (Standard)</td><td>Базовый урон без модификаторов</td></tr>
+        <tr><td>Бронебойные (AP)</td><td>Снижают SP цели вдвое, но урон по ХП режется наполовину</td></tr>
+        <tr><td>Экспансивные (Hollow Point)</td><td>Удваивают урон по незащищённым целям, хуже против SP</td></tr>
+        <tr><td>Резиновые (Rubber/Rezin)</td><td>Нелетальный оглушающий урон</td></tr>
+      </tbody>
+    </table>
   </section>
 
   <!-- ===================== LORE ===================== -->
   <section class="panel" id="panel-lore">
-    <h2>История мира: путь к 2020-м</h2>
+    <h2>История Мира и Особенности Найт-Сити</h2>
+    <p>Мир Cyberpunk 2020 построен на концепции <b>"High Tech, Low Life"</b> (Высокие технологии, низкий уровень жизни). Мегакорпорации подмяли под себя закон, а улицы мегаполисов кишат бандами и наёмниками.</p>
+    
+    <div class="rule-block">
+      <h3>Главные правила выживания на улицах:</h3>
+      <ul>
+        <li><b>Стиль превыше сути:</b> Не важно, насколько ты хорош, важно, как ты выглядишь.</li>
+        <li><b>Отношение — это всё:</b> Уверенность и дерзость спасут жизнь чаще, чем полная обойма.</li>
+        <li><b>Живи на грани:</b> Рискуй всем, играй по-крупному. В этом мире нет счастливой старости.</li>
+      </ul>
+    </div>
+
     <div class="lore-grid">
       <div class="lore-entry">
         <div class="lore-year">1990s</div>
-        <div><h4>Закат старого порядка</h4><p>Серия экономических кризисов и локальных конфликтов подрывает
-        доверие к национальным правительствам. Крупные корпорации начинают брать на себя функции, которые раньше
-        принадлежали государству — от безопасности до инфраструктуры целых городов.</p></div>
+        <div><h4>Закат старого порядка</h4><p>Серия экономических кризисов и локальных конфликтов подрывает государства. Мегакорпорации (Militech, Arasaka, Petrochem) берут на себя функции правительств — от полиций до инфраструктур городов.</p></div>
       </div>
       <div class="lore-entry">
         <div class="lore-year">2000s</div>
-        <div><h4>Корпоративные войны</h4><p>Мегакорпорации вроде Arasaka и Militech открыто соперничают за
-        ресурсы, рынки и территорию, порой руками собственных частных армий. Государственные границы всё ещё
-        существуют формально, но реальная власть смещается в советы директоров.</p></div>
+        <div><h4>Корпоративные войны и Trauma Team</h4><p>Корпорации открыто воюют частными армиями. Медицина становится коммерческой — служба Trauma Team International высылает вооружённых медиков на броневиках только к обладателям дорогих страховок.</p></div>
       </div>
       <div class="lore-entry">
         <div class="lore-year">2010s</div>
-        <div><h4>Рождение Найт-Сити</h4><p>Экспериментальный прибрежный мегаполис становится витриной нового
-        уклада: небоскрёбы корпоративных штаб-квартир соседствуют с трущобами Combat Zone, где закон почти не
-        действует. Уличные банды, фиксеры и наёмники заполняют вакуум власти.</p></div>
+        <div><h4>Рождение Найт-Сити</h4><p>Прибрежный мегаполис Найт-Сити становится витриной нового мира: небоскрёбы корпораций соседствуют с опасными трущобами Combat Zone, где закон контролируется бандами, фиксерами и соло.</p></div>
       </div>
       <div class="lore-entry">
         <div class="lore-year">2020</div>
-        <div><h4>Мир, в котором играем</h4><p>Кибернетика перестала быть роскошью — это инструмент выживания:
-        от боевых имплантов соло до нейроинтерфейсов нетраннеров. Эмпатия становится дефицитным ресурсом:
-        чем больше в тебе металла, тем выше риск однажды перестать быть человеком в глазах окружающих.</p></div>
+        <div><h4>Эпоха Эджранеров</h4><p>Кибернетика стала повседневным инструментом выживания. Эмпатия и человечность становятся дефицитом, а улицы полны киберпсихопатов и наёмников, готовых на всё ради евробаков.</p></div>
       </div>
     </div>
-    <div class="note">Это краткая авторская выжимка сеттинга для контекста игры, а не пересказ конкретного текста
-    книги правил — детали и хронологию лучше проверять по актуальному изданию Cyberpunk 2020 / RED.</div>
   </section>
 
 </main>
 
-<footer>NIGHT CITY MARSHMELLO · Неофициальный фан-инструмент · Cyberpunk 2020 — R. Talsorian Games</footer>
+<footer>NIGHT CITY MARSHMELLO · Справочник и калькулятор CP2020</footer>
 
 <script>
   // ---------- TABS ----------
@@ -535,16 +566,16 @@
   const MIN = 2, MAX = 10;
 
   const ROLE_PRESETS = {
-    Solo:       {INT:6, REF:8, TECH:6, COOL:7, ATTR:7, LUCK:6, MA:7, BODY:8, EMP:7},
-    Netrunner:  {INT:8, REF:7, TECH:8, COOL:7, ATTR:6, LUCK:6, MA:6, BODY:7, EMP:7},
-    Techie:     {INT:7, REF:6, TECH:8, COOL:7, ATTR:6, LUCK:7, MA:6, BODY:7, EMP:7},
-    Medtech:    {INT:8, REF:7, TECH:8, COOL:6, ATTR:6, LUCK:6, MA:6, BODY:8, EMP:7},
-    Media:      {INT:8, REF:6, TECH:6, COOL:8, ATTR:7, LUCK:7, MA:6, BODY:7, EMP:7},
-    Cop:        {INT:7, REF:8, TECH:6, COOL:7, ATTR:6, LUCK:6, MA:7, BODY:8, EMP:7},
-    Corporate:  {INT:8, REF:6, TECH:7, COOL:8, ATTR:8, LUCK:6, MA:6, BODY:6, EMP:7},
-    Fixer:      {INT:8, REF:6, TECH:7, COOL:8, ATTR:8, LUCK:7, MA:6, BODY:5, EMP:7},
-    Nomad:      {INT:6, REF:8, TECH:7, COOL:7, ATTR:6, LUCK:7, MA:8, BODY:7, EMP:6},
-    Rockerboy:  {INT:7, REF:7, TECH:6, COOL:9, ATTR:8, LUCK:6, MA:6, BODY:6, EMP:7}
+    Solo:       {INT:6, REF:8, TECH:5, COOL:7, ATTR:6, LUCK:5, MA:7, BODY:8, EMP:6},
+    Netrunner:  {INT:9, REF:5, TECH:7, COOL:6, ATTR:4, LUCK:6, MA:5, BODY:4, EMP:6},
+    Techie:     {INT:7, REF:5, TECH:9, COOL:6, ATTR:5, LUCK:5, MA:6, BODY:6, EMP:6},
+    Medtech:    {INT:7, REF:5, TECH:6, COOL:6, ATTR:5, LUCK:5, MA:5, BODY:5, EMP:7},
+    Media:      {INT:8, REF:5, TECH:5, COOL:7, ATTR:6, LUCK:6, MA:6, BODY:4, EMP:7},
+    Cop:        {INT:6, REF:7, TECH:5, COOL:7, ATTR:5, LUCK:5, MA:6, BODY:7, EMP:6},
+    Corporate:  {INT:8, REF:5, TECH:5, COOL:7, ATTR:6, LUCK:6, MA:6, BODY:4, EMP:6},
+    Fixer:      {INT:7, REF:6, TECH:5, COOL:8, ATTR:6, LUCK:6, MA:6, BODY:5, EMP:7},
+    Nomad:      {INT:6, REF:7, TECH:6, COOL:6, ATTR:5, LUCK:6, MA:7, BODY:7, EMP:6},
+    Rockerboy:  {INT:7, REF:6, TECH:5, COOL:8, ATTR:8, LUCK:6, MA:7, BODY:5, EMP:7}
   };
 
   const values = {};
@@ -554,7 +585,8 @@
     const preset = ROLE_PRESETS[role] || ROLE_PRESETS.Solo;
     STATS.forEach(s => {
       values[s.key] = preset[s.key];
-      document.getElementById('stat-'+s.key).value = preset[s.key];
+      const inp = document.getElementById('stat-'+s.key);
+      if(inp) inp.value = preset[s.key];
     });
     updateBudget();
     updateDerived();
@@ -628,74 +660,25 @@
 
   // ---------- IMPLANT CATALOG ----------
   const IMPLANTS = [
-    ['Базовый нейропроцессор','Neuralware','1000','1d6','Основа для ряда нейроимплантов'],
-    ['Chipware Socket','Neuralware','200','1d6/2','Слот для чипов'],
-    ['Интерфейсные разъёмы (пара)','Neuralware','200','1d6','Прямое подключение к интерфейсам'],
-    ['Kerenzikov BoostWare','Neuralware','500','1d6 / 2d6','Усиление реакции'],
+    ['Базовый нейропроцессор','Neuralware','1000','1d6','Основа для нейроимплантов'],
+    ['Chipware Socket','Neuralware','200','1d6/2','Разъём для чипов навыков'],
+    ['Интерфейсные разъёмы (пара)','Neuralware','200','1d6','Подключение к технике и Сети'],
+    ['Kerenzikov BoostWare','Neuralware','500','1d6 / 2d6','Ускоритель рефлексов'],
     ['Sandevistan SpeedWare','Neuralware','1600','1d6/2','Кратковременное ускорение реакции'],
     ['Pain Editor','Neuralware','200','2d6','Снижает влияние боли'],
-    ['Olfactory Boost','Neuralware','100','2','Усиленное обоняние'],
-    ['Tactile Boost','Neuralware','100','2','Усиленное осязание'],
-    ['PaceMaker Coprocessor','Neuralware','150','2','Аварийная поддержка сердца'],
-    ['CyberModem Link','Neuralware','100','1','Связь с кибермодемом'],
-    ['DataTerm Link','Neuralware','100','2','Подключение к DataTerm'],
-    ['SmartGun Link','Neuralware','100','2','Интерфейс умного оружия'],
-    ['Vehicle Link','Neuralware','100','3','Интерфейс транспорта'],
-    ['Machine/Tech Link','Neuralware','100','2','Интерфейс техники'],
-    ['WetDrive Access Link','Neuralware','200','1d6/2','Доступ к WetDrive'],
-    ['LockDown','Neuralware','300','1d6','Помогает находить источники огня/снайперов'],
-    ['Назальные фильтры','Bodyware','60','2','Фильтрация воздуха'],
-    ['Жабры','Bodyware','400','3d6','Позволяют дышать под водой'],
-    ['Независимая подача кислорода','Bodyware','300','2d6','Запас кислорода'],
-    ['Подкожный карман','Bodyware','200','2d6','Скрытое место хранения'],
-    ['Усиление надпочечников','Bodyware','400','2d6','Боевой/стрессовый буст'],
-    ['Подкожная броня','Bodyware','1200','2d6','Защита под кожей'],
-    ['Детектор движения','Bodyware','200','2d6','Обнаружение движения'],
-    ['Цифровой рекордер','Bodyware','200','2','Встроенная запись'],
-    ['Аудио/видео магнитофон','Bodyware','300','2','Встроенная аудио/видеозапись'],
-    ['Радарный датчик','Bodyware','200','2','Короткодистанционный радар'],
-    ['Сонар','Bodyware','300','2','Обнаружение эхолокацией'],
-    ['Детектор радиации','Bodyware','200','2','Контроль радиационного фона'],
-    ['Химический анализатор','Bodyware','200','2','Анализ химических веществ'],
-    ['Синтезатор голоса','Bodyware','600','1d6','Изменение/имитация голоса'],
-    ['AudioVox','Bodyware','700','2d6','Расширенная голосовая модификация'],
-    ['Кибероптический модуль','Cyberoptics','1000','2d6','Базовая кибернетическая оптика'],
-    ['Ночное видение','Cyberoptics','200','2','Видение в темноте'],
-    ['Инфракрасное видение','Cyberoptics','200','2','Тепловой диапазон'],
-    ['Телескопический прицел','Cyberoptics','200','2','Увеличение изображения'],
-    ['Low-Light','Cyberoptics','100','2','Улучшение зрения при слабом свете'],
-    ['Anti-Dazzle','Cyberoptics','100','2','Защита от ослепления'],
-    ['Cyberoptics Eyepatch','Cyberoptics','330','2d6/3','Компактный оптический модуль'],
+    ['SmartGun Link','Neuralware','100','2','Интерфейс связи со смарт-оружием (+2)'],
+    ['Подкожная броня SP 12','Bodyware','1200','2d6','Защита под кожей'],
+    ['Кибероптический модуль','Cyberoptics','1000','2d6','Базовая кибероптика'],
+    ['Ночное видение (Low-Light)','Cyberoptics','200','2','Ночное зрение'],
+    ['Прицельный модуль (Targeting Scope)','Cyberoptics','200','2','Модуль прицеливания (+1 к попаданию)'],
     ['Кибераудио','Cyberaudio','500','1d6','Базовый аудиомодуль'],
     ['Усилитель слуха','Cyberaudio','100','2','Повышение чувствительности слуха'],
-    ['Фильтр звука','Cyberaudio','100','1','Фильтрация нежелательных шумов'],
-    ['Радиоприёмник','Cyberaudio','100','1','Встроенная радиосвязь'],
     ['Киберрука','Cyberlimbs','1000','2d6','Замена руки; допускает модификации'],
     ['Кибернога','Cyberlimbs','1200','2d6','Замена ноги; допускает модификации'],
-    ['Киберглаз(а)','Cyberlimbs','1000','2d6','Замена глаза/оптический интерфейс'],
-    ['Киберухо','Cyberlimbs','1000','2d6','Замена уха/аудиоинтерфейс'],
     ['Rippers','Body Weapons','400','3d6','Выдвижные лезвия'],
     ['Wolvers','Body Weapons','600','3d6+1','Усиленные выдвижные когти'],
-    ['Scratchers','Body Weapons','100','2d6','Базовые когти'],
-    ['Big Knuckles','Body Weapons','500','3d6','Усиленные кулаки'],
-    ['CyberSnake','Body Weapons','1200','4d6','Имплантированное гибкое оружие'],
-    ['Implanted Fangs','Body Weapons','200','3d6','Имплантированные клыки'],
-    ['Power Jaw','Body Weapons','100','1d6/3','Усиленная челюсть'],
-    ['Stinger','Body Weapons','400','1d6+3','Имплантированное жало'],
     ['Sigma Linear Frame','Linear Frames','6000','2d6','Силовой каркас, STR 12'],
-    ['Beta Linear Frame','Linear Frames','8000','2d6','Силовой каркас, STR 14'],
-    ['Omega Linear Frame','Linear Frames','10000','3d6','Силовой каркас, STR 16'],
-    ['Biomonitor','Fashionware','100','1','Мониторинг состояния организма'],
-    ['Skinwatch','Fashionware','50','1','Подкожные часы'],
-    ['Light Tattoo','Fashionware','1–20','0.5','Светящаяся декоративная татуировка'],
-    ['Shift-Tacts','Fashionware','1–200','0.5','Контактные линзы со сменой цвета'],
-    ['ChemSkins','Fashionware','200','1d6/2','Изменение цвета/рисунка кожи'],
-    ['Synthskins','Fashionware','400','1d6','Искусственная кожа'],
-    ['Gyro-Stabilizer','Bodyware','1000','1d6','Помогает удерживать равновесие'],
-    ['Rebreather / Enhanced Lungs','Bodyware','700','1d6+1','Улучшенное дыхание и задержка дыхания'],
-    ['Extra Memory','Neuralware','175','0','Дополнительная память'],
-    ['Wet Drive','Neuralware','320','1d6','Встроенное хранение данных'],
-    ['OptiShield','Cyberoptics','300','1d6+2','Защита оптики от вспышек/повреждений']
+    ['Biomonitor','Fashionware','100','1','Мониторинг состояния здоровья']
   ];
 
   const implantBody = document.querySelector('#implantTable tbody');
@@ -721,6 +704,18 @@
     document.title = 'Cyberpunk 2020 — ' + name;
   }
   document.getElementById('cname').addEventListener('input', syncCharacterTitle);
+
+  document.getElementById('downloadPdf').addEventListener('click', () => {
+    const element = document.querySelector('.dossier');
+    const opt = {
+      margin:       0.5,
+      filename:     (document.getElementById('cname').value || 'character') + '_cp2020.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2 },
+      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+  });
 </script>
 
 </body>
