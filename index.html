@@ -136,6 +136,26 @@
         <tr><td><b>Media (Медиа)</b></td><td>Credibility (Достоверность)</td><td>Журналисты и репортёры. Влияют на общественное мнение, разоблачают корпорации и имеют доступ к закрытым источникам.</td></tr>
       </tbody>
     </table>
+
+    <h2 style="margin-top:28px;">Профессиональные навыки (Career Skills)</h2>
+    <p>При создании персонажа игрок делит <b>40 очков профессии (Career Points)</b> между 10 профессиональными навыками своей роли. Эти очки нельзя тратить на приобретаемые (Pickup) навыки, зато позже их можно повышать за (Improvement Points) очки улучшения.</p>
+    <table>
+      <thead>
+        <tr><th>Роль</th><th>Профессиональные навыки (Career Skills)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>Solo</b></td><td>Combat Sense, Awareness/Notice, Handgun, Brawling/Martial Arts, Melee, Weaponsmith, Rifle, Athletics, Submachinegun, Stealth</td></tr>
+        <tr><td><b>Rockerboy</b></td><td>Charismatic Leadership, Notice, Perform, Style, Composition, Brawling, Play Instrument, Streetwise, Persuasion, Seduction</td></tr>
+        <tr><td><b>Netrunner</b></td><td>Interface, Awareness/Notice, Basic Tech, Education, System Knowledge, Cyber Tech, Cyberdeck Design, Composition, Electronics, Programming</td></tr>
+        <tr><td><b>Techie</b></td><td>Jury Rig, Awareness/Notice, Basic Tech, Cyber Tech, Teaching, Education, Electronics, и 3 любых технических навыка (Gyro, Aero, Weaponsmith, Electronic Security)</td></tr>
+        <tr><td><b>Medtech</b></td><td>Medical Tech, Awareness/Notice, Basic Tech, Diagnose Illness, Education, Cryotank Operation, Library Search, Pharmaceuticals, Zoology, Human Perception</td></tr>
+        <tr><td><b>Media</b></td><td>Credibility, Awareness/Notice, Composition, Education, Persuasion, Human Perception, Social, Streetwise, Photography &amp; Film, Interview</td></tr>
+        <tr><td><b>Cop</b></td><td>Authority, Awareness/Notice, Handgun, Human Perception, Athletics, Education, Brawling, Melee, Interrogation, Streetwise</td></tr>
+        <tr><td><b>Corporate</b></td><td>Resources, Awareness/Notice, Human Perception, Education, Library Search, Social, Persuasion, Stock Market, Wardrobe &amp; Style, Personal Grooming</td></tr>
+        <tr><td><b>Fixer</b></td><td>Streetdeal, Awareness/Notice, Forgery, Handgun, Brawling, Melee, Pick Lock, Pick Pocket, Intimidate, Persuasion</td></tr>
+        <tr><td><b>Nomad</b></td><td>Family, Awareness/Notice, Endurance, Melee, Rifle, Drive, Basic Tech, Wilderness Survival, Brawling, Athletics</td></tr>
+      </tbody>
+    </table>
   </section>
 
   <!-- ===================== RULES & COMBAT ===================== -->
@@ -189,6 +209,30 @@
         <li><b>Закупка экипировки:</b> Выберите оружие, броню, снаряжение и стартовые импланты.</li>
       </ol>
     </div>
+
+    <div class="rule-block">
+      <h3>5. Броня (Body Armor)</h3>
+      <p>Броня вычитается из урона в защищённой локации; каждое пробитие снижает её SP на 1 (см. п. 2). EV — штраф к скорости/ловкости от тяжести брони.</p>
+      <table>
+        <thead>
+          <tr><th>Тип брони</th><th>Покрывает</th><th>SP</th><th>EV</th><th>Цена, eb</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Кожаная одежда</td><td>Руки, торс, ~ноги</td><td>0</td><td>+0</td><td>разная</td></tr>
+          <tr><td>Тяжёлая кожа</td><td>Руки, торс, ~ноги</td><td>4</td><td>+0</td><td>50</td></tr>
+          <tr><td>Кевларовая футболка/жилет</td><td>Торс</td><td>10</td><td>+0</td><td>90</td></tr>
+          <tr><td>Стальной шлем</td><td>Голова</td><td>14</td><td>+0</td><td>20</td></tr>
+          <tr><td>Лёгкая бронекуртка</td><td>Торс, руки</td><td>14</td><td>+0</td><td>150</td></tr>
+          <tr><td>Средняя бронекуртка</td><td>Торс, руки</td><td>18</td><td>+1</td><td>200</td></tr>
+          <tr><td>Бронированный жилет (Flak vest)</td><td>Торс</td><td>20</td><td>+1</td><td>200</td></tr>
+          <tr><td>Бронированные брюки (Flak pants)</td><td>Ноги</td><td>20</td><td>+1</td><td>200</td></tr>
+          <tr><td>Нейлоновый шлем</td><td>Голова</td><td>20</td><td>+0</td><td>100</td></tr>
+          <tr><td>Тяжёлая бронекуртка</td><td>Торс, руки</td><td>20</td><td>+2</td><td>250</td></tr>
+          <tr><td>Жилет борт-стрелка</td><td>Торс</td><td>25</td><td>+3</td><td>250</td></tr>
+          <tr><td>Metal Gear™</td><td>Всё тело</td><td>25</td><td>+2</td><td>600</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <!-- ===================== IMPLANTS ===================== -->
@@ -225,7 +269,62 @@
           <th>Имплант</th><th>Категория</th><th>Цена, eb</th><th>HC</th><th>Кратко</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody>
+        <tr data-cat="Fashionware"><td>Biomonitor</td><td>Fashionware</td><td>100</td><td>1</td><td>+2 к сопротивлению пыткам и наркотикам</td></tr>
+        <tr data-cat="Fashionware"><td>Skinwatch</td><td>Fashionware</td><td>50</td><td>1</td><td>Часы, размещённые в коже</td></tr>
+        <tr data-cat="Fashionware"><td>Light Tattoo</td><td>Fashionware</td><td>1-20</td><td>0.5</td><td>Светящаяся декоративная татуировка</td></tr>
+        <tr data-cat="Fashionware"><td>Shift-tacts</td><td>Fashionware</td><td>1-200</td><td>0.5</td><td>Контактные линзы, меняющие цвет</td></tr>
+        <tr data-cat="Fashionware"><td>ChemSkins</td><td>Fashionware</td><td>200</td><td>1D6/2</td><td>Меняет цвет и черты кожи</td></tr>
+        <tr data-cat="Fashionware"><td>SynthSkins</td><td>Fashionware</td><td>400</td><td>1D6</td><td>Искусственная кожа со сменой цвета</td></tr>
+        <tr data-cat="Fashionware"><td>Techhair</td><td>Fashionware</td><td>1-200</td><td>2</td><td>Светоизлучающие искусственные волосы</td></tr>
+
+        <tr data-cat="Neuralware"><td>Базовый процессор</td><td>Neuralware</td><td>1000</td><td>1D6</td><td>Обязателен для всех нейро-систем</td></tr>
+        <tr data-cat="Neuralware"><td>Kerenzikov Boosterware</td><td>Neuralware</td><td>500</td><td>1D6/2D6</td><td>+1 к инициативе за купленный уровень</td></tr>
+        <tr data-cat="Neuralware"><td>Sandevistan (Speedware)</td><td>Neuralware</td><td>1600</td><td>1D6/2</td><td>+3 к инициативе на 5 ходов</td></tr>
+        <tr data-cat="Neuralware"><td>Tactile Boost</td><td>Neuralware</td><td>100</td><td>2</td><td>+2 к тактильным проверкам осведомлённости</td></tr>
+        <tr data-cat="Neuralware"><td>Olfactory Boost</td><td>Neuralware</td><td>100</td><td>2</td><td>+2 к осведомлённости через обоняние</td></tr>
+        <tr data-cat="Neuralware"><td>Pain Editor</td><td>Neuralware</td><td>200</td><td>2D6</td><td>Блокирует жар, холод, боль</td></tr>
+        <tr data-cat="Neuralware"><td>Interface Plugs</td><td>Neuralware</td><td>200</td><td>1D6/пара</td><td>Прямое подключение к умному оружию/технике</td></tr>
+        <tr data-cat="Neuralware"><td>Chipware Socket</td><td>Neuralware</td><td>200</td><td>1D6/2</td><td>Разъём для чипов навыков (INT/REF/TECH)</td></tr>
+
+        <tr data-cat="Bodyware"><td>Nasal Filters</td><td>Bodyware</td><td>60</td><td>2</td><td>Останавливает токсичные пары и газы (80%)</td></tr>
+        <tr data-cat="Bodyware"><td>Gills</td><td>Bodyware</td><td>400</td><td>3D6</td><td>Дыхание под водой до 4 часов</td></tr>
+        <tr data-cat="Bodyware"><td>Independent Air Supply</td><td>Bodyware</td><td>300</td><td>2D6</td><td>Автономный запас O2 на 25 минут</td></tr>
+        <tr data-cat="Bodyware"><td>SubDermal Pocket</td><td>Bodyware</td><td>200</td><td>2D6</td><td>Скрытая полость-карман под кожей</td></tr>
+        <tr data-cat="Bodyware"><td>Adrenal Booster</td><td>Bodyware</td><td>400</td><td>2D6</td><td>+1 REF на 1D6+2 хода, 3 раза в день</td></tr>
+        <tr data-cat="Bodyware"><td>Subdermal Armor</td><td>Bodyware</td><td>1200</td><td>2D6</td><td>Бронирует торс до SP 18</td></tr>
+        <tr data-cat="Bodyware"><td>Motion Detector</td><td>Bodyware</td><td>200</td><td>2D6</td><td>Обнаруживает движение в радиусе 20 кв.м</td></tr>
+        <tr data-cat="Bodyware"><td>Digital Recorder</td><td>Bodyware</td><td>200</td><td>2</td><td>Запись 2 часов с любого цифрового источника</td></tr>
+
+        <tr data-cat="Cyberoptics"><td>Базовый глазной модуль</td><td>Cyberoptics</td><td>500/глаз</td><td>2D6/глаз</td><td>До 4 опций на один глаз</td></tr>
+        <tr data-cat="Cyberoptics"><td>Image Enhancement</td><td>Cyberoptics</td><td>300</td><td>1</td><td>+2 к осведомлённости при визуальном поиске</td></tr>
+        <tr data-cat="Cyberoptics"><td>Targeting Scope</td><td>Cyberoptics</td><td>400</td><td>2</td><td>+1 к атакам с умным оружием (smartgun)</td></tr>
+        <tr data-cat="Cyberoptics"><td>Teleoptics</td><td>Cyberoptics</td><td>150</td><td>0.5</td><td>Телескопическое зрение 20x</td></tr>
+        <tr data-cat="Cyberoptics"><td>Low Lite™</td><td>Cyberoptics</td><td>200</td><td>0.5</td><td>Зрение почти в полной темноте</td></tr>
+        <tr data-cat="Cyberoptics"><td>Thermograph Sensor</td><td>Cyberoptics</td><td>200</td><td>1</td><td>Тепловое зрение, определение температуры</td></tr>
+        <tr data-cat="Cyberoptics"><td>Infrared</td><td>Cyberoptics</td><td>200</td><td>1</td><td>Инфракрасное зрение в темноте</td></tr>
+        <tr data-cat="Cyberoptics"><td>MicroVideo Optic</td><td>Cyberoptics</td><td>300</td><td>0.5</td><td>Видеозапись до 20 минут</td></tr>
+
+        <tr data-cat="Cyberaudio"><td>Базовый слуховой модуль</td><td>Cyberaudio</td><td>500</td><td>2D6</td><td>Платформа для аудио-опций, лимита нет</td></tr>
+        <tr data-cat="Cyberaudio"><td>Amplified Hearing</td><td>Cyberaudio</td><td>200</td><td>1</td><td>+1 к осведомлённости при поиске звука</td></tr>
+        <tr data-cat="Cyberaudio"><td>Radio Link</td><td>Cyberaudio</td><td>100</td><td>1</td><td>Радиосвязь до 1 мили</td></tr>
+        <tr data-cat="Cyberaudio"><td>Voice Stress Analyser</td><td>Cyberaudio</td><td>200</td><td>1</td><td>Детектор лжи, +2 к пониманию людей/допросу</td></tr>
+        <tr data-cat="Cyberaudio"><td>Bug Detector</td><td>Cyberaudio</td><td>200</td><td>0.5</td><td>Обнаружение жучков в радиусе 3м (60%)</td></tr>
+        <tr data-cat="Cyberaudio"><td>Enhanced Hearing Range</td><td>Cyberaudio</td><td>150</td><td>2</td><td>Слышит инфра- и ультразвук</td></tr>
+
+        <tr data-cat="Body Weapons"><td>Retractable Scratchers</td><td>Body Weapons</td><td>100</td><td>2D6</td><td>Когти в руках, урон 1D6/2</td></tr>
+        <tr data-cat="Body Weapons"><td>Rippers</td><td>Body Weapons</td><td>400</td><td>3D6</td><td>Когти в руках, урон 1D6+3 (AP)</td></tr>
+        <tr data-cat="Body Weapons"><td>Wolvers</td><td>Body Weapons</td><td>600</td><td>3D6+1</td><td>Когти в руках, урон 3D6 (AP)</td></tr>
+        <tr data-cat="Body Weapons"><td>Cybersnake</td><td>Body Weapons</td><td>1200</td><td>4D6</td><td>Самоуправляемое кибер-оружие, урон 1D6</td></tr>
+        <tr data-cat="Body Weapons"><td>Popup Gun</td><td>Body Weapons</td><td>2-800</td><td>2D6</td><td>Выдвижное огнестрельное оружие в конечности</td></tr>
+        <tr data-cat="Body Weapons"><td>Grenade Launcher (встр.)</td><td>Body Weapons</td><td>500</td><td>2D6</td><td>Гранатомёт в кибер-конечности, 1 граната</td></tr>
+        <tr data-cat="Body Weapons"><td>Micromissile Launcher</td><td>Body Weapons</td><td>900</td><td>2D6</td><td>4 мини-ракеты, урон 4D6 каждая</td></tr>
+        <tr data-cat="Body Weapons"><td>Flamethrower (встр.)</td><td>Body Weapons</td><td>600</td><td>2D6</td><td>2D6 урона в 1-й ход, 1D6/2 ещё 2 хода</td></tr>
+
+        <tr data-cat="Linear Frames"><td>Frame Σ (Sigma)</td><td>Linear Frames</td><td>6000</td><td>2D6</td><td>Экзоскелет, Сила = 12</td></tr>
+        <tr data-cat="Linear Frames"><td>Frame β (Beta)</td><td>Linear Frames</td><td>8000</td><td>2D6</td><td>Экзоскелет, Сила = 14</td></tr>
+        <tr data-cat="Linear Frames"><td>Frame Ω (Omega)</td><td>Linear Frames</td><td>10000</td><td>3D6</td><td>Экзоскелет, Сила = 16</td></tr>
+      </tbody>
     </table>
   </section>
 
@@ -245,6 +344,36 @@
         <tr><td>Дробовик</td><td>12 калибр, картечь/слаг</td><td>5к6</td><td>Убийственно на близкой дистанции</td></tr>
         <tr><td>Штурмовая винтовка</td><td>Militech Ronin, 5.56</td><td>5к6</td><td>Основное оружие корпоративной пехоты</td></tr>
         <tr><td>Снайперская винтовка</td><td>.308 и крупнее</td><td>5к6+</td><td>Бонусы на дистанции, штраф на близкой</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:28px;">Каталог огнестрельного оружия</h2>
+    <div class="note">
+      WA — точность оружия, Скр. — скрытность (P/J/L/N = карман/куртка/плащ/нельзя спрятать), Дост. — доступность (E/C/P/R/N — от повседневного до редкого), Скор. — скорострельность (выстрелов за ход), Над. — надёжность (VR/ST/UR — очень надёжное/стандартное/ненадёжное).
+    </div>
+    <table>
+      <thead>
+        <tr><th>Название</th><th>Тип</th><th>WA</th><th>Скр.</th><th>Дост.</th><th>Урон/Патрон</th><th>Патр.</th><th>Скор.</th><th>Над.</th><th>Дист.</th><th>Цена, eb</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Budget Arms C-13</td><td>Лёгкий пистолет</td><td>-1</td><td>P</td><td>E</td><td>1D6 (5мм)</td><td>8</td><td>2</td><td>ST</td><td>50м</td><td>75</td></tr>
+        <tr><td>Federated Arms X-22</td><td>Лёгкий пистолет</td><td>0</td><td>P</td><td>E</td><td>1D6+1 (6мм)</td><td>10</td><td>2</td><td>ST</td><td>50м</td><td>150</td></tr>
+        <tr><td>Militech Arms Avenger</td><td>Средний пистолет</td><td>0</td><td>J</td><td>E</td><td>2D6+1 (9мм)</td><td>10</td><td>2</td><td>VR</td><td>50м</td><td>250</td></tr>
+        <tr><td>Dai Lung Streetmaster</td><td>Средний пистолет</td><td>0</td><td>J</td><td>E</td><td>2D6+3 (10мм)</td><td>12</td><td>2</td><td>UR</td><td>50м</td><td>250</td></tr>
+        <tr><td>Sternmeyer Type 35</td><td>Тяжёлый пистолет</td><td>0</td><td>J</td><td>C</td><td>3D6 (11мм)</td><td>8</td><td>2</td><td>VR</td><td>50м</td><td>400</td></tr>
+        <tr><td>Colt AMT Model 2000</td><td>Оч. тяжёлый пистолет</td><td>0</td><td>J</td><td>C</td><td>4D6+1 (12мм)</td><td>8</td><td>1</td><td>VR</td><td>50м</td><td>500</td></tr>
+        <tr><td>Uzi Miniauto 9</td><td>Лёгкий ПП</td><td>+1</td><td>J</td><td>E</td><td>2D6+1 (9мм)</td><td>30</td><td>35</td><td>VR</td><td>150м</td><td>475</td></tr>
+        <tr><td>H&amp;K MP-2013</td><td>Лёгкий ПП</td><td>+1</td><td>J</td><td>C</td><td>2D6+3 (10мм)</td><td>35</td><td>32</td><td>ST</td><td>150м</td><td>450</td></tr>
+        <tr><td>Arasaka Minami 10</td><td>Средний ПП</td><td>0</td><td>J</td><td>E</td><td>2D6+3 (10мм)</td><td>40</td><td>20</td><td>VR</td><td>200м</td><td>500</td></tr>
+        <tr><td>Ingram MAC 14</td><td>Тяжёлый ПП</td><td>-2</td><td>L</td><td>E</td><td>4D6+1 (12мм)</td><td>20</td><td>10</td><td>ST</td><td>200м</td><td>650</td></tr>
+        <tr><td>Militech Ronin Light Assault</td><td>Штурм. винтовка</td><td>+1</td><td>N</td><td>C</td><td>5D6 (5.56)</td><td>35</td><td>30</td><td>VR</td><td>400м</td><td>450</td></tr>
+        <tr><td>AKR-20 Medium Assault</td><td>Штурм. винтовка</td><td>0</td><td>N</td><td>C</td><td>5D6 (5.56)</td><td>30</td><td>30</td><td>ST</td><td>400м</td><td>500</td></tr>
+        <tr><td>FN-FAL Heavy Assault Rifle</td><td>Штурм. винтовка</td><td>-1</td><td>N</td><td>C</td><td>6D6+2 (7.62)</td><td>30</td><td>30</td><td>VR</td><td>400м</td><td>600</td></tr>
+        <tr><td>Arasaka Rapid Assault 12</td><td>Дробовик</td><td>-1</td><td>N</td><td>C</td><td>4D6 (00)</td><td>20</td><td>10</td><td>ST</td><td>50м</td><td>900</td></tr>
+        <tr><td>Sternmeyer Stakeout 10</td><td>Дробовик</td><td>-2</td><td>N</td><td>R</td><td>4D6 (00)</td><td>10</td><td>2</td><td>ST</td><td>50м</td><td>450</td></tr>
+        <tr><td>Barrett-Arasaka Light 20mm</td><td>Тяжёлое оружие</td><td>0</td><td>N</td><td>R</td><td>4D10 AP (20/9мм)</td><td>10</td><td>1</td><td>VR</td><td>450м</td><td>2 000</td></tr>
+        <tr><td>Militech Arms RPG-A</td><td>Тяжёлое оружие</td><td>-2</td><td>N</td><td>R</td><td>6D10</td><td>1</td><td>1</td><td>VR</td><td>750м</td><td>1 500</td></tr>
+        <tr><td>Огнемёт K-AF-253</td><td>Тяжёлое оружие</td><td>-2</td><td>N</td><td>R</td><td>2D10+1 (1-й ход), 1D6/2 (2 хода)</td><td>0</td><td>1</td><td>ST</td><td>50м</td><td>1 500</td></tr>
       </tbody>
     </table>
 
@@ -288,9 +417,53 @@
         <div><h4>Рождение Найт-Сити</h4><p>Прибрежный мегаполис Найт-Сити становится витриной нового мира: небоскрёбы корпораций соседствуют с опасными трущобами Combat Zone, где закон контролируется бандами, фиксерами и соло.</p></div>
       </div>
       <div class="lore-entry">
+        <div class="lore-year">2003</div>
+        <div><h4>Первая Корпоративная война</h4><p>12 мультинациональных корпораций (включая EBM и OA) сражаются за контроль над международным воздушным пространством.</p></div>
+      </div>
+      <div class="lore-entry">
+        <div class="lore-year">2007</div>
+        <div><h4>Вторая Корпоративная война</h4><p>Ряд фирм, включая Petrochem, спорят за нефтяные месторождения в Южно-Китайском море.</p></div>
+      </div>
+      <div class="lore-entry">
+        <div class="lore-year">2008</div>
+        <div><h4>Конец власти толпы в Найт-Сити</h4><p>Корпорации окончательно упраздняют власть организованной преступности над городом и берут контроль в свои руки.</p></div>
+      </div>
+      <div class="lore-entry">
+        <div class="lore-year">2013</div>
+        <div><h4>NET-Watch и первый ИИ</h4><p>Евро-блок учреждает NET-Watch для надзора за Сетью; в подразделении Microtech в Сан-Ниввейле разработан первый настоящий искусственный интеллект.</p></div>
+      </div>
+      <div class="lore-entry">
+        <div class="lore-year">2016</div>
+        <div><h4>Третья Корпоративная война</h4><p>Война окончательно переходит в Сеть — соперничающие корпорации атакуют «крепости данных» (Data Fortresses) друг друга.</p></div>
+      </div>
+      <div class="lore-entry">
         <div class="lore-year">2020</div>
         <div><h4>Эпоха Эджранеров</h4><p>Кибернетика стала повседневным инструментом выживания. Эмпатия и человечность становятся дефицитом, а улицы полны киберпсихопатов и наёмников, готовых на всё ради евробаков.</p></div>
       </div>
+    </div>
+
+    <div class="rule-block" style="margin-top:24px;">
+      <h3>Единый Гражданский Юстиционный Кодекс (UCJC)</h3>
+      <p>После стремительного роста преступности в 1990-х и «Чисток» 1996 года старая правовая система рухнула. UCJC устанавливает единые для CA-Free State наказания за основные преступления улиц Найт-Сити.</p>
+      <table>
+        <thead>
+          <tr><th>Преступление</th><th>Наказание</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Нападение и побои</td><td>Коррекция личности или 1D6+1 месяцев тюрьмы</td></tr>
+          <tr><td>Нападение с намерением убить</td><td>1D6+1 лет тюрьмы, принудительный «braindance»</td></tr>
+          <tr><td>Кража со взломом</td><td>Изгнание, тюрьма (1D6+1 лет) или «braindance»</td></tr>
+          <tr><td>Убийство (1-й степени)</td><td>Смерть</td></tr>
+          <tr><td>Убийство (2-й степени)</td><td>Тюрьма 1D10+10 лет, «braindance», коррекция личности</td></tr>
+          <tr><td>Убийство (оправданное)</td><td>Самооборона — наказания нет</td></tr>
+          <tr><td>Похищение / незаконное лишение свободы</td><td>Тюрьма 1D10+10 лет, «braindance», коррекция личности</td></tr>
+          <tr><td>Изнасилование</td><td>Тюрьма 1D10+5 лет, «braindance», коррекция личности</td></tr>
+          <tr><td>Вымогательство / шантаж</td><td>Тюрьма 1D10+5 лет</td></tr>
+          <tr><td>Вандализм</td><td>Изгнание, тюрьма до 1D6 месяцев</td></tr>
+          <tr><td>Сопротивление аресту</td><td>Изгнание, «braindance», тюрьма 1D6+1 недель</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Патрулированием занимаются как городские (Cops), так и корпоративные копы — последние обычно лучше вооружены, застрахованы Trauma Team и охотнее стреляют первыми.</p>
     </div>
   </section>
 
@@ -299,6 +472,25 @@
 <footer>NIGHT CITY MARSHMELLO · Справочник и калькулятор CP2020</footer>
 
 <script src="js/calculator.js"></script>
+<script>
+// Поиск и фильтрация по каталогу имплантов (данные из Cyberpunk 2020 core book)
+(function(){
+  var searchInput = document.getElementById('implantSearch');
+  var categorySelect = document.getElementById('implantCategory');
+  var rows = document.querySelectorAll('#implantTable tbody tr');
+  function applyFilter(){
+    var q = (searchInput && searchInput.value || '').trim().toLowerCase();
+    var cat = (categorySelect && categorySelect.value) || 'all';
+    rows.forEach(function(row){
+      var matchesCat = (cat === 'all') || (row.getAttribute('data-cat') === cat);
+      var matchesText = !q || row.textContent.toLowerCase().indexOf(q) !== -1;
+      row.style.display = (matchesCat && matchesText) ? '' : 'none';
+    });
+  }
+  if (searchInput) searchInput.addEventListener('input', applyFilter);
+  if (categorySelect) categorySelect.addEventListener('change', applyFilter);
+})();
+</script>
 
 </body>
 </html>
